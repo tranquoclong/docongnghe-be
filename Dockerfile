@@ -16,7 +16,7 @@ COPY package.json pnpm-lock.yaml ./
 COPY prisma ./prisma
 
 # Install production dependencies with frozen lockfile
-RUN pnpm install --prod --frozen-lockfile
+RUN pnpm install --prod --frozen-lockfile --ignore-scripts
 
 # Stage 3: Build - Install all dependencies and build
 FROM base AS build
@@ -33,7 +33,7 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 
 # Generate Prisma client
-RUN npx prisma generate
+RUN pnpm exec prisma generate
 
 # Build TypeScript application
 RUN pnpm run build

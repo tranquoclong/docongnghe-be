@@ -6,7 +6,6 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "postinstall": "npx prisma generate --schema=./prisma/schema.prisma",
     "init-seed-data": "ts-node initialScript/index.ts",
     "create-permissions": "ts-node initialScript/create-permissions.ts",
     "add-languages": "ts-node initialScript/add-languages.ts",
