@@ -1,16 +1,16 @@
 import { z } from 'zod'
-import fs from 'fs'
-import path from 'path'
+// import fs from 'fs'
+// import path from 'path'
 import { config } from 'dotenv'
 
 config({
   path: '.env',
 })
 // Kiểm tra coi thử có file .env hay chưa
-if (!fs.existsSync(path.resolve('.env'))) {
-  console.log('Không tìm thấy file .env')
-  process.exit(1)
-}
+// if (!fs.existsSync(path.resolve('.env'))) {
+//   console.log('Không tìm thấy file .env')
+//   process.exit(1)
+// }
 
 // Nó gọn hơn rất là nhiều so với class-validator, class-transform
 const configSchema = z.object({
