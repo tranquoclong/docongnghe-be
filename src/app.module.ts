@@ -147,14 +147,12 @@ import { DashboardModule } from './routes/dashboard/dashboard.module'
     I18nModule.forRoot({
       fallbackLanguage: 'en', // Nếu không có truyền cái gì lên thì nó sẽ tự động lấy là `en`
       loaderOptions: {
-        // path: path.resolve('src/i18n/'),
-        path: path.join(__dirname, '../../i18n/'),
+        path: path.resolve('src/i18n/'),
         watch: true,
       },
       // Cái chỗ này chúng ta có thể custom lại cái resolvers bằng cách sử dụng HeaderResolver và nhận vào cái options là ['Accept-Language1'] chẳng hạn
       resolvers: [{ use: QueryResolver, options: ['lang'] }, AcceptLanguageResolver],
-      // typesOutputPath: path.resolve('src/generated/i18n.generated.ts'),
-      typesOutputPath: path.join(__dirname, '../../generated/i18n.generated.ts'),
+      typesOutputPath: path.resolve('src/generated/i18n.generated.ts'),
     }),
     ThrottlerModule.forRoot({
       throttlers: [

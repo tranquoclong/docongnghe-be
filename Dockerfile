@@ -60,6 +60,8 @@ COPY --from=build --chown=node:node /app/dist ./dist
 # Copy Prisma schema and generated client
 COPY --from=build --chown=node:node /app/prisma ./prisma
 
+COPY --from=build --chown=node:node /app/src/i18n ./src/i18n
+
 # Copy package.json for version info
 COPY --chown=node:node package.json ./
 
