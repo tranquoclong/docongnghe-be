@@ -50,7 +50,7 @@ USER node
 WORKDIR /app
 
 # Copy production dependencies from dependencies stage
-COPY --from=dependencies --chown=node:node /app/node_modules ./node_modules
+COPY --from=build --chown=node:node /app/node_modules ./node_modules
 
 # Copy built application from build stage
 COPY --from=build --chown=node:node /app/dist ./dist
