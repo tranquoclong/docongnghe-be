@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthController Response Structure Snapshots should match 2FA setup response structure 1`] = `
+{
+  "secret": "JBSWY3DPEHPK3PXP",
+  "uri": "otpauth://totp/Ecommerce:test@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Ecommerce",
+}
+`;
+
+exports[`AuthController Response Structure Snapshots should match login response structure 1`] = `
+{
+  "accessToken": "mock-access-token-123",
+  "avatar": null,
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": null,
+  "deletedAt": null,
+  "deletedById": null,
+  "email": "test@example.com",
+  "id": 1,
+  "isActive": true,
+  "name": "Test User",
+  "phoneNumber": "0123456789",
+  "refreshToken": "mock-refresh-token-456",
+  "roleId": 2,
+  "status": "ACTIVE",
+  "totpEnabled": false,
+  "totpSecret": null,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`AuthController Response Structure Snapshots should match message response structure 1`] = `
+{
+  "message": "OTP sent successfully",
+}
+`;
+
+exports[`AuthController Response Structure Snapshots should match refresh token response structure 1`] = `
+{
+  "accessToken": "mock-access-token-123",
+  "refreshToken": "mock-refresh-token-456",
+}
+`;
+
+exports[`AuthController Response Structure Snapshots should match register response structure 1`] = `
+{
+  "accessToken": "mock-access-token-123",
+  "avatar": null,
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": null,
+  "deletedAt": null,
+  "deletedById": null,
+  "email": "test@example.com",
+  "id": 1,
+  "isActive": true,
+  "name": "Test User",
+  "phoneNumber": "0123456789",
+  "refreshToken": "mock-refresh-token-456",
+  "roleId": 2,
+  "status": "ACTIVE",
+  "totpEnabled": false,
+  "totpSecret": null,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;

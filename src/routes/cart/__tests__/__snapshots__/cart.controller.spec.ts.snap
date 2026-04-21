@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartController Response Structure Snapshots should match add to cart response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "id": 1,
+  "quantity": 2,
+  "skuId": 1,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "userId": 1,
+}
+`;
+
+exports[`CartController Response Structure Snapshots should match cart list response structure 1`] = `
+{
+  "data": [
+    {
+      "cartItems": [
+        {
+          "createdAt": "2024-01-01T00:00:00.000Z",
+          "id": 1,
+          "quantity": 2,
+          "sku": {
+            "id": 1,
+            "image": "test-image.jpg",
+            "price": 50000,
+            "product": {
+              "id": 1,
+              "name": "Test Product",
+              "productTranslations": [
+                {
+                  "description": "Test Description",
+                  "id": 1,
+                  "languageId": "vi",
+                  "name": "Test Product",
+                },
+              ],
+              "publishedAt": "2024-01-01T00:00:00.000Z",
+              "variants": [
+                {
+                  "options": [
+                    "M",
+                    "L",
+                    "XL",
+                  ],
+                  "value": "Size",
+                },
+              ],
+            },
+            "productId": 1,
+            "stock": 100,
+            "value": "Size: M, Color: Red",
+          },
+          "skuId": 1,
+          "updatedAt": "2024-01-01T00:00:00.000Z",
+          "userId": 1,
+        },
+      ],
+      "shop": {
+        "avatar": null,
+        "id": 1,
+        "name": "Test Shop",
+      },
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 1,
+  "totalPages": 1,
+}
+`;
+
+exports[`CartController Response Structure Snapshots should match delete cart response structure 1`] = `
+{
+  "message": "3 item(s) deleted from cart",
+}
+`;

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileController Response Structure Snapshots should match change password response structure 1`] = `
+{
+  "message": "Password changed successfully",
+}
+`;
+
+exports[`ProfileController Response Structure Snapshots should match profile response structure 1`] = `
+{
+  "avatar": "https://example.com/avatar.jpg",
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": null,
+  "deletedAt": null,
+  "deletedById": null,
+  "email": "user@example.com",
+  "id": 1,
+  "name": "Test User",
+  "password": "hashed_password",
+  "phoneNumber": "0123456789",
+  "role": {
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "createdById": null,
+    "deletedAt": null,
+    "deletedById": null,
+    "description": "Default user role",
+    "id": 2,
+    "isActive": true,
+    "name": "User",
+    "permissions": [
+      {
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "createdById": null,
+        "deletedAt": null,
+        "deletedById": null,
+        "description": "Read profile",
+        "id": 1,
+        "method": "GET",
+        "module": "profile",
+        "name": "read:profile",
+        "path": "/profile",
+        "updatedAt": "2024-01-01T00:00:00.000Z",
+        "updatedById": null,
+      },
+    ],
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "updatedById": null,
+  },
+  "roleId": 2,
+  "status": "ACTIVE",
+  "totpSecret": null,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;

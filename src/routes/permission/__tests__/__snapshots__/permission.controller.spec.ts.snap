@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PermissionController Response Structure Snapshots should match permission create response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "description": "Permission to view users",
+  "id": 10,
+  "method": "GET",
+  "module": "user",
+  "name": "New Permission",
+  "path": "/users",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`PermissionController Response Structure Snapshots should match permission detail response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "description": "Permission to view users",
+  "id": 1,
+  "method": "GET",
+  "module": "user",
+  "name": "View Users",
+  "path": "/users",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`PermissionController Response Structure Snapshots should match permission list response structure 1`] = `
+{
+  "data": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "description": "Permission to view users",
+      "id": 1,
+      "method": "GET",
+      "module": "user",
+      "name": "View Users",
+      "path": "/users",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "description": "Permission to view users",
+      "id": 2,
+      "method": "GET",
+      "module": "user",
+      "name": "Create Users",
+      "path": "/users",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 2,
+  "totalPages": 1,
+}
+`;

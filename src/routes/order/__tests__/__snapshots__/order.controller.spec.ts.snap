@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderController Response Structure Snapshots should match cancel order response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": null,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 1,
+  "paymentId": 1,
+  "receiver": {
+    "address": "123 Đường ABC, Quận 1, TP.HCM",
+    "name": "Nguyễn Văn A",
+    "phone": "0123456789",
+  },
+  "shopId": 1,
+  "status": "CANCELLED",
+  "totalAmount": 100000,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+  "userId": 1,
+}
+`;
+
+exports[`OrderController Response Structure Snapshots should match create order response structure 1`] = `
+{
+  "orders": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": null,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "paymentId": 1,
+      "receiver": {
+        "address": "123 Đường ABC, Quận 1, TP.HCM",
+        "name": "Nguyễn Văn A",
+        "phone": "0123456789",
+      },
+      "shopId": 1,
+      "status": "PENDING_PAYMENT",
+      "totalAmount": 100000,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+      "userId": 1,
+    },
+  ],
+  "paymentId": 1,
+}
+`;
+
+exports[`OrderController Response Structure Snapshots should match order list response structure 1`] = `
+{
+  "data": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "id": 1,
+      "items": [
+        {
+          "createdAt": "2024-01-01T00:00:00.000Z",
+          "id": 1,
+          "image": "test-image.jpg",
+          "orderId": 1,
+          "productId": 1,
+          "productName": "Test Product",
+          "productTranslations": [
+            {
+              "description": "Test Description",
+              "id": 1,
+              "languageId": "vi",
+              "name": "Test Product",
+            },
+          ],
+          "quantity": 2,
+          "skuId": 1,
+          "skuPrice": 50000,
+          "skuValue": "Size: M, Color: Red",
+        },
+      ],
+      "paymentId": 1,
+      "shopId": 1,
+      "status": "PENDING_PAYMENT",
+      "totalAmount": 100000,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "userId": 1,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 1,
+  "totalPages": 1,
+}
+`;

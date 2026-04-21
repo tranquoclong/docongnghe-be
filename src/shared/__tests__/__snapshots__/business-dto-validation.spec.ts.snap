@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Business DTO Validation Snapshots AddToCartBodySchema should produce validation error for extra fields 1`] = `
+[
+  {
+    "code": "unrecognized_keys",
+    "keys": [
+      "extraField",
+    ],
+    "message": "Unrecognized key: "extraField"",
+    "path": [],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots AddToCartBodySchema should produce validation errors for empty object 1`] = `
+[
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "message": "Invalid input: expected number, received undefined",
+    "path": [
+      "skuId",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "message": "Invalid input: expected number, received undefined",
+    "path": [
+      "quantity",
+    ],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots AddToCartBodySchema should produce validation errors for invalid values 1`] = `
+[
+  {
+    "code": "too_small",
+    "inclusive": false,
+    "message": "Too small: expected number to be >0",
+    "minimum": 0,
+    "origin": "number",
+    "path": [
+      "quantity",
+    ],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots CreateOrderBodySchema should produce validation errors for empty array 1`] = `
+[
+  {
+    "code": "too_small",
+    "inclusive": true,
+    "message": "Too small: expected array to have >=1 items",
+    "minimum": 1,
+    "origin": "array",
+    "path": [],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots CreateOrderBodySchema should produce validation errors for invalid order item 1`] = `
+[
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "message": "Invalid input: expected number, received undefined",
+    "path": [
+      0,
+      "shopId",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "message": "Invalid input: expected object, received undefined",
+    "path": [
+      0,
+      "receiver",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received undefined",
+    "path": [
+      0,
+      "cartItemIds",
+    ],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots CreateProductBodySchema should produce validation errors for empty object 1`] = `
+[
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "publishedAt",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "name",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "message": "Invalid input: expected number, received undefined",
+    "path": [
+      "basePrice",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "message": "Invalid input: expected number, received undefined",
+    "path": [
+      "virtualPrice",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "message": "Invalid input: expected number, received undefined",
+    "path": [
+      "brandId",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received undefined",
+    "path": [
+      "images",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received undefined",
+    "path": [
+      "variants",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received undefined",
+    "path": [
+      "categories",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received undefined",
+    "path": [
+      "skus",
+    ],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots CreateProductBodySchema should produce validation errors for invalid field types 1`] = `
+[
+  {
+    "code": "invalid_format",
+    "format": "datetime",
+    "message": "Invalid ISO datetime",
+    "origin": "string",
+    "path": [
+      "publishedAt",
+    ],
+    "pattern": "/^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$/",
+  },
+  {
+    "code": "too_small",
+    "inclusive": true,
+    "message": "Too small: expected number to be >=0",
+    "minimum": 0,
+    "origin": "number",
+    "path": [
+      "basePrice",
+    ],
+  },
+  {
+    "code": "too_small",
+    "inclusive": true,
+    "message": "Too small: expected number to be >=0",
+    "minimum": 0,
+    "origin": "number",
+    "path": [
+      "virtualPrice",
+    ],
+  },
+  {
+    "code": "too_small",
+    "inclusive": false,
+    "message": "Too small: expected number to be >0",
+    "minimum": 0,
+    "origin": "number",
+    "path": [
+      "brandId",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received string",
+    "path": [
+      "images",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received string",
+    "path": [
+      "variants",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received string",
+    "path": [
+      "categories",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "message": "Invalid input: expected array, received string",
+    "path": [
+      "skus",
+    ],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots CreateVoucherBodySchema should produce validation error for invalid voucher code format 1`] = `
+[
+  {
+    "code": "invalid_format",
+    "format": "regex",
+    "message": "Mã voucher chỉ được chứa chữ hoa, số, _ và -",
+    "origin": "string",
+    "path": [
+      "code",
+    ],
+    "pattern": "/^[A-Z0-9_-]+$/",
+  },
+  {
+    "code": "custom",
+    "message": "Ngày kết thúc phải sau ngày bắt đầu",
+    "path": [
+      "endDate",
+    ],
+  },
+  {
+    "code": "custom",
+    "message": "Voucher giảm theo % không được vượt quá 100%",
+    "path": [
+      "value",
+    ],
+  },
+]
+`;
+
+exports[`Business DTO Validation Snapshots CreateVoucherBodySchema should produce validation errors for empty object 1`] = `
+[
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "code",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "name",
+    ],
+  },
+  {
+    "code": "invalid_value",
+    "message": "Invalid option: expected one of "PERCENTAGE"|"FIXED_AMOUNT"|"FREE_SHIPPING"|"BUY_X_GET_Y"",
+    "path": [
+      "type",
+    ],
+    "values": [
+      "PERCENTAGE",
+      "FIXED_AMOUNT",
+      "FREE_SHIPPING",
+      "BUY_X_GET_Y",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "message": "Invalid input: expected number, received undefined",
+    "path": [
+      "value",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "startDate",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "endDate",
+    ],
+  },
+]
+`;

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WishlistController Response Structure Snapshots should match wishlist collection response structure 1`] = `
+{
+  "data": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "description": "Test collection",
+      "id": 1,
+      "isPublic": false,
+      "name": "My Collection",
+      "shareCode": null,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "userId": 1,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 1,
+  "totalPages": 1,
+}
+`;
+
+exports[`WishlistController Response Structure Snapshots should match wishlist count response structure 1`] = `
+{
+  "count": 5,
+}
+`;
+
+exports[`WishlistController Response Structure Snapshots should match wishlist items list response structure 1`] = `
+{
+  "data": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "id": 1,
+      "note": "Test note",
+      "priority": 1,
+      "productId": 100,
+      "skuId": 200,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "userId": 1,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 1,
+  "totalPages": 1,
+}
+`;

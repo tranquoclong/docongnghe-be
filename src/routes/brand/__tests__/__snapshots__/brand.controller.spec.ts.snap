@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BrandController Response Structure Snapshots should match brand create response structure 1`] = `
+{
+  "brandTranslations": [],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 10,
+  "logo": "https://example.com/nike-logo.png",
+  "name": "New Brand",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`BrandController Response Structure Snapshots should match brand delete response structure 1`] = `
+{
+  "message": "Delete successfully",
+}
+`;
+
+exports[`BrandController Response Structure Snapshots should match brand detail response structure 1`] = `
+{
+  "brandTranslations": [],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 1,
+  "logo": "https://example.com/nike-logo.png",
+  "name": "Nike",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`BrandController Response Structure Snapshots should match brand list response structure 1`] = `
+{
+  "data": [
+    {
+      "brandTranslations": [],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "logo": "https://example.com/nike-logo.png",
+      "name": "Nike",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+    {
+      "brandTranslations": [],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 2,
+      "logo": "https://example.com/nike-logo.png",
+      "name": "Adidas",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 2,
+  "totalPages": 1,
+}
+`;

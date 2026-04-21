@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageProductController Response Structure Snapshots should match create product response structure 1`] = `
+{
+  "basePrice": 100000,
+  "brandId": 1,
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 1,
+  "images": [
+    "https://example.com/image1.jpg",
+  ],
+  "name": "Test Product",
+  "publishedAt": 2024-01-01T00:00:00.000Z,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+  "variants": [
+    {
+      "options": [
+        "Red",
+        "Blue",
+      ],
+      "value": "Color",
+    },
+  ],
+  "virtualPrice": 150000,
+}
+`;
+
+exports[`ManageProductController Response Structure Snapshots should match product detail response structure 1`] = `
+{
+  "basePrice": 100000,
+  "brand": {
+    "brandTranslations": [],
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "createdById": 1,
+    "deletedAt": null,
+    "deletedById": null,
+    "id": 1,
+    "name": "Test Brand",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "updatedById": null,
+  },
+  "brandId": 1,
+  "categories": [
+    {
+      "categoryTranslations": [],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "name": "Electronics",
+      "parentCategoryId": null,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 1,
+  "images": [
+    "https://example.com/image1.jpg",
+  ],
+  "name": "Test Product",
+  "productTranslations": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "description": "Test Description",
+      "id": 1,
+      "languageId": "en",
+      "name": "Test Product",
+      "productId": 1,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "publishedAt": 2024-01-01T00:00:00.000Z,
+  "skus": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "image": "https://example.com/red.jpg",
+      "price": 100000,
+      "productId": 1,
+      "stock": 100,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+      "value": "Red",
+    },
+  ],
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+  "variants": [
+    {
+      "options": [
+        "Red",
+        "Blue",
+      ],
+      "value": "Color",
+    },
+  ],
+  "virtualPrice": 150000,
+}
+`;

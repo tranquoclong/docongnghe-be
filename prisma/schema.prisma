@@ -1,0 +1,1134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator json {
+  provider = "prisma-json-types-generator"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Language {
+  id                   String                @id @db.VarChar(10)
+  name                 String                @db.VarChar(500)
+  createdById          Int?
+  updatedById          Int?
+  deletedAt            DateTime?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  deletedById          Int?
+  brandTranslations    BrandTranslation[]
+  categoryTranslations CategoryTranslation[]
+  createdBy            User?                 @relation("LanguageCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy            User?                 @relation("LanguageDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  updatedBy            User?                 @relation("LanguageUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  productTranslations  ProductTranslation[]
+  userTranslations     UserTranslation[]
+  productSpecGroupTranslations ProductSpecGroupTranslation[]
+  productSpecTranslations      ProductSpecTranslation[] 
+
+  @@index([deletedAt])
+}
+
+model User {
+  id                          Int                   @id @default(autoincrement())
+  email                       String
+  name                        String                @db.VarChar(500)
+  password                    String                @db.VarChar(500)
+  phoneNumber                 String                @db.VarChar(50)
+  avatar                      String?               @db.VarChar(1000)
+  totpSecret                  String?               @db.VarChar(1000)
+  status                      UserStatus            @default(INACTIVE)
+  roleId                      Int
+  createdById                 Int?
+  updatedById                 Int?
+  deletedAt                   DateTime?
+  createdAt                   DateTime              @default(now())
+  updatedAt                   DateTime              @updatedAt
+  deletedById                 Int?
+  createdBrands               Brand[]               @relation("BrandCreatedBy")
+  deletedBrands               Brand[]               @relation("BrandDeletedBy")
+  updatedBrands               Brand[]               @relation("BrandUpdatedBy")
+  createdBrandTranslations    BrandTranslation[]    @relation("BrandTranslationCreatedBy")
+  deletedBrandTranslations    BrandTranslation[]    @relation("BrandTranslationDeletedBy")
+  updatedBrandTranslations    BrandTranslation[]    @relation("BrandTranslationUpdatedBy")
+  carts                       CartItem[]
+  createdCategories           Category[]            @relation("CategoryCreatedBy")
+  deletedCategories           Category[]            @relation("CategoryDeletedBy")
+  updatedCategories           Category[]            @relation("CategoryUpdatedBy")
+  createdCategoryTranslations CategoryTranslation[] @relation("CategoryTranslationCreatedBy")
+  deletedCategoryTranslations CategoryTranslation[] @relation("CategoryTranslationDeletedBy")
+  updatedCategoryTranslations CategoryTranslation[] @relation("CategoryTranslationUpdatedBy")
+  device                      Device[]
+  createdLanguages            Language[]            @relation("LanguageCreatedBy")
+  deletedLanguages            Language[]            @relation("LanguageDeletedBy")
+  updatedLanguages            Language[]            @relation("LanguageUpdatedBy")
+  sentMessages                Message[]             @relation("FromUser")
+  receivedMessages            Message[]             @relation("ToUser")
+  createdOrders               Order[]               @relation("OrderCreatedBy")
+  deletedOrders               Order[]               @relation("OrderDeletedBy")
+  updatedOrders               Order[]               @relation("OrderUpdatedBy")
+  soldOrders                  Order[]               @relation("Shop")
+  createdPermissions          Permission[]          @relation("PermissionCreatedBy")
+  deletedPermissions          Permission[]          @relation("PermissionDeletedBy")
+  updatedPermissions          Permission[]          @relation("PermissionUpdatedBy")
+  createdProducts             Product[]             @relation("ProductCreatedBy")
+  deletedProducts             Product[]             @relation("ProductDeletedBy")
+  updatedProducts             Product[]             @relation("ProductUpdatedBy")
+  createdProductTranslations  ProductTranslation[]  @relation("ProductTranslationCreatedBy")
+  deletedProductTranslations  ProductTranslation[]  @relation("ProductTranslationDeletedBy")
+  updatedProductTranslations  ProductTranslation[]  @relation("ProductTranslationUpdatedBy")
+  refreshTokens               RefreshToken[]
+  reviews                     Review[]
+  createdRoles                Role[]                @relation("RoleCreatedBy")
+  deletedRoles                Role[]                @relation("RoleDeletedBy")
+  updatedRoles                Role[]                @relation("RoleUpdatedBy")
+  createdSKUS                 SKU[]                 @relation("SKUCreatedBy")
+  deletedSKUS                 SKU[]                 @relation("SKUDeletedBy")
+  updatedSKUS                 SKU[]                 @relation("SKUUpdatedBy")
+  createdBy                   User?                 @relation("CreatorUsers", fields: [createdById], references: [id], onUpdate: NoAction)
+  createdUsers                User[]                @relation("CreatorUsers")
+  deletedBy                   User?                 @relation("DeletorUsers", fields: [deletedById], references: [id], onUpdate: NoAction)
+  deletedUsers                User[]                @relation("DeletorUsers")
+  role                        Role                  @relation(fields: [roleId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  updatedBy                   User?                 @relation("UpdatorUsers", fields: [updatedById], references: [id], onUpdate: NoAction)
+  updatedUsers                User[]                @relation("UpdatorUsers")
+  createdUserTranslations     UserTranslation[]     @relation("UserTranslationCreatedBy")
+  deletedUserTranslations     UserTranslation[]     @relation("UserTranslationDeletedBy")
+  updatedUserTranslations     UserTranslation[]     @relation("UserTranslationUpdatedBy")
+  userTranslations            UserTranslation[]     @relation("User")
+  wishlistItems               WishlistItem[]        @relation("UserWishlist")
+  wishlistCollections         WishlistCollection[]  @relation("UserWishlistCollections")
+  Order                       Order[]
+  Websocket                   Websocket[]
+
+  // Chat system relations - thêm mới cho hệ thống chat real-time
+  ownedConversations       Conversation[]        @relation("ConversationOwner")
+  conversationMembers      ConversationMember[]  @relation("ConversationMembers")
+  sentConversationMessages ConversationMessage[] @relation("SentConversationMessages")
+  messageReactions         MessageReaction[]     @relation("MessageReactions")
+  messageReadReceipts      MessageReadReceipt[]  @relation("MessageReadReceipts")
+  typingIndicators         TypingIndicator[]     @relation("TypingIndicators")
+
+  // Address Management Relations
+  addresses Address[] @relation("UserAddresses")
+
+  // Voucher Relations
+  userVouchers    UserVoucher[] @relation("UserVouchers")
+  sellerVouchers  Voucher[]     @relation("VoucherSeller")
+  createdVouchers Voucher[]     @relation("VoucherCreatedBy")
+  updatedVouchers Voucher[]     @relation("VoucherUpdatedBy")
+  deletedVouchers Voucher[]     @relation("VoucherDeletedBy")
+
+  // AI Assistant Relations
+  aiConversations    AIConversation[] @relation("UserAIConversations")
+  createdAIKnowledge AIKnowledge[]    @relation("AIKnowledgeCreatedBy")
+  updatedAIKnowledge AIKnowledge[]    @relation("AIKnowledgeUpdatedBy")
+
+  @@index([deletedAt])
+}
+
+model UserTranslation {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  languageId  String
+  address     String?   @db.VarChar(500)
+  description String?
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedById Int?
+  createdBy   User?     @relation("UserTranslationCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy   User?     @relation("UserTranslationDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  language    Language  @relation(fields: [languageId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  updatedBy   User?     @relation("UserTranslationUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  user        User      @relation("User", fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([deletedAt])
+}
+
+model VerificationCode {
+  id        Int                  @id @default(autoincrement())
+  email     String               @db.VarChar(500)
+  code      String               @db.VarChar(50)
+  type      VerificationCodeType
+  expiresAt DateTime
+  createdAt DateTime             @default(now())
+
+  @@unique([email, type, code])
+  @@index([expiresAt])
+}
+
+model RefreshToken {
+  token     String   @unique @db.VarChar(1000)
+  userId    Int
+  deviceId  Int
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  device    Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([expiresAt])
+}
+
+model Device {
+  id            Int            @id @default(autoincrement())
+  userId        Int
+  userAgent     String
+  ip            String
+  lastActive    DateTime       @updatedAt
+  createdAt     DateTime       @default(now())
+  isActive      Boolean        @default(true)
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  refreshTokens RefreshToken[]
+}
+
+model Permission {
+  id          Int        @id @default(autoincrement())
+  name        String     @db.VarChar(500)
+  description String     @default("")
+  path        String     @db.VarChar(1000)
+  method      HTTPMethod
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  deletedById Int?
+  module      String     @default("") @db.VarChar(500)
+  createdBy   User?      @relation("PermissionCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy   User?      @relation("PermissionDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  updatedBy   User?      @relation("PermissionUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  roles       Role[]     @relation("PermissionToRole")
+
+  @@index([deletedAt])
+}
+
+model Role {
+  id          Int          @id @default(autoincrement())
+  name        String       @db.VarChar(500)
+  description String       @default("")
+  isActive    Boolean      @default(true)
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  deletedById Int?
+  createdBy   User?        @relation("RoleCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy   User?        @relation("RoleDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  updatedBy   User?        @relation("RoleUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  users       User[]
+  permissions Permission[] @relation("PermissionToRole")
+
+  @@index([deletedAt])
+}
+
+model Product {
+  id           Int       @id @default(autoincrement())
+  brandId      Int
+  images       String[]
+  updatedById  Int?
+  deletedAt    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedById  Int?
+  basePrice    Float
+  name         String    @db.VarChar(500)
+  publishedAt  DateTime?
+  /// [Variants]
+  variants     Json
+  virtualPrice Float
+  brand        Brand     @relation(fields: [brandId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  deletedBy           User?                @relation("ProductDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  updatedBy           User?                @relation("ProductUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  productTranslations ProductTranslation[]
+  reviews             Review[]
+  skus                SKU[]
+  categories          Category[]           @relation("CategoryToProduct")
+  orders              Order[]              @relation("OrderToProduct")
+  createdById         Int
+  createdBy           User                 @relation("ProductCreatedBy", fields: [createdById], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  ProductSKUSnapshot  ProductSKUSnapshot[]
+  aiKnowledge         AIKnowledge[]        @relation("AIKnowledgeProduct")
+  wishlistItems       WishlistItem[]       @relation("ProductWishlist")
+  specGroups          ProductSpecGroup[]
+
+  @@index([deletedAt])
+  @@index([brandId, deletedAt])
+  @@index([publishedAt, deletedAt])
+  @@index([basePrice])
+  @@index([createdById, deletedAt])
+}
+
+model ProductTranslation {
+  id          Int       @id @default(autoincrement())
+  productId   Int
+  languageId  String
+  name        String    @db.VarChar(500)
+  description String
+
+  /// [ProductHighlights] — mảng sections, mỗi section có heading + content (rich text)
+  highlights  Json?
+
+  seoTitle       String? @db.VarChar(255)
+  seoDescription String? @db.VarChar(500)
+
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedById Int?
+  createdBy   User?     @relation("ProductTranslationCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy   User?     @relation("ProductTranslationDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  language    Language  @relation(fields: [languageId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  updatedBy   User?     @relation("ProductTranslationUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  
+  @@unique([productId, languageId])
+  @@index([deletedAt])
+  @@index([productId])
+}
+
+model ProductSpecGroup {
+  id        Int     @id @default(autoincrement())
+  productId Int
+  key       String
+  sortOrder Int     @default(0)
+  deletedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  product      Product                      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  translations ProductSpecGroupTranslation[]
+  specs        ProductSpec[]
+
+  @@unique([productId, key])
+  @@index([productId])
+  @@index([deletedAt]) 
+}
+
+model ProductSpecGroupTranslation {
+  id        Int    @id @default(autoincrement())
+  groupId   Int
+  languageId String
+  label     String @db.VarChar(255)
+
+  group    ProductSpecGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  language Language         @relation(fields: [languageId], references: [id])
+
+  @@unique([groupId, languageId])
+}
+
+model ProductSpec {
+  id        Int    @id @default(autoincrement())
+  groupId   Int
+  key       String
+  sortOrder Int    @default(0)
+  deletedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  group        ProductSpecGroup          @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  translations ProductSpecTranslation[]
+
+  @@unique([groupId, key])
+  @@index([groupId])
+  @@index([deletedAt]) 
+}
+
+model ProductSpecTranslation {
+  id         Int    @id @default(autoincrement())
+  specId     Int
+  languageId String
+  label      String @db.VarChar(255)
+  value      String @db.Text
+
+  spec     ProductSpec @relation(fields: [specId], references: [id], onDelete: Cascade)
+  language Language    @relation(fields: [languageId], references: [id])
+
+  @@unique([specId, languageId])
+}
+
+model Category {
+  id                   Int                   @id @default(autoincrement())
+  parentCategoryId     Int?
+  createdById          Int?
+  updatedById          Int?
+  deletedAt            DateTime?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  deletedById          Int?
+  logo                 String?               @db.VarChar(1000)
+  name                 String                @db.VarChar(500)
+  createdBy            User?                 @relation("CategoryCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy            User?                 @relation("CategoryDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  parentCategory       Category?             @relation("ParentCategoryCategories", fields: [parentCategoryId], references: [id], onUpdate: NoAction)
+  childrenCategories   Category[]            @relation("ParentCategoryCategories")
+  updatedBy            User?                 @relation("CategoryUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  categoryTranslations CategoryTranslation[]
+  products             Product[]             @relation("CategoryToProduct")
+  aiKnowledge          AIKnowledge[]         @relation("AIKnowledgeCategory")
+
+  @@index([deletedAt])
+}
+
+model CategoryTranslation {
+  id          Int       @id @default(autoincrement())
+  categoryId  Int
+  languageId  String
+  name        String    @db.VarChar(500)
+  description String
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedById Int?
+  category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  createdBy   User?     @relation("CategoryTranslationCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy   User?     @relation("CategoryTranslationDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  language    Language  @relation(fields: [languageId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  updatedBy   User?     @relation("CategoryTranslationUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+
+  @@index([deletedAt])
+}
+
+model SKU {
+  id                  Int                  @id @default(autoincrement())
+  value               String               @db.VarChar(500)
+  price               Float
+  stock               Int
+  productId           Int
+  updatedById         Int?
+  deletedAt           DateTime?
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  deletedById         Int?
+  image               String
+  cartItems           CartItem[]
+  productSKUSnapshots ProductSKUSnapshot[]
+
+  deletedBy     User?          @relation("SKUDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  product       Product        @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  updatedBy     User?          @relation("SKUUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  createdById   Int
+  createdBy     User           @relation("SKUCreatedBy", fields: [createdById], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  wishlistItems WishlistItem[] @relation("SKUWishlist")
+
+  @@index([deletedAt])
+  @@index([productId])
+  @@index([stock, deletedAt])
+}
+
+model Brand {
+  id                Int                @id @default(autoincrement())
+  logo              String             @db.VarChar(1000)
+  createdById       Int?
+  updatedById       Int?
+  deletedAt         DateTime?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  deletedById       Int?
+  name              String             @db.VarChar(500)
+  createdBy         User?              @relation("BrandCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy         User?              @relation("BrandDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  updatedBy         User?              @relation("BrandUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  brandTranslations BrandTranslation[]
+  products          Product[]
+
+  @@index([deletedAt])
+}
+
+model BrandTranslation {
+  id          Int       @id @default(autoincrement())
+  brandId     Int
+  languageId  String
+  name        String    @db.VarChar(500)
+  description String
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedById Int?
+  brand       Brand     @relation(fields: [brandId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  createdBy   User?     @relation("BrandTranslationCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  deletedBy   User?     @relation("BrandTranslationDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  language    Language  @relation(fields: [languageId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  updatedBy   User?     @relation("BrandTranslationUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+
+  @@index([deletedAt])
+}
+
+model CartItem {
+  id        Int      @id @default(autoincrement())
+  quantity  Int
+  skuId     Int
+  userId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sku       SKU      @relation(fields: [skuId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([userId, skuId])
+  @@index([userId])
+  @@index([skuId])
+}
+
+model ProductSKUSnapshot {
+  id                  Int      @id @default(autoincrement())
+  productName         String   @db.VarChar(500)
+  skuPrice            Float
+  image               String
+  skuValue            String   @db.VarChar(500)
+  skuId               Int?
+  orderId             Int?
+  quantity            Int
+  productId           Int?
+  product             Product? @relation(fields: [productId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  /// [ProductTranslations]
+  productTranslations Json
+  createdAt           DateTime @default(now())
+  order               Order?   @relation(fields: [orderId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  sku                 SKU?     @relation(fields: [skuId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+}
+
+model Order {
+  id        Int         @id @default(autoincrement())
+  userId    Int
+  status    OrderStatus
+  /// [Receiver]
+  receiver  Json
+  shopId    Int?
+  shop      User?       @relation("Shop", fields: [shopId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  paymentId Int
+  payment   Payment     @relation(fields: [paymentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  // Enhanced Order Flow Fields
+  addressId         Int? // Địa chỉ giao hàng
+  shippingFee       Float     @default(0) // Phí vận chuyển
+  totalAmount       Float     @default(0) // Tổng tiền = items + shipping
+  notes             String? // Ghi chú đơn hàng
+  estimatedDelivery DateTime? // Thời gian giao hàng dự kiến
+  voucherId         Int? // Voucher áp dụng
+  discountAmount    Float     @default(0) // Số tiền được giảm
+
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedById Int?
+
+  // Relations
+  address   Address?             @relation("OrderAddress", fields: [addressId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  voucher   Voucher?             @relation("OrderVoucher", fields: [voucherId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  createdBy User?                @relation("OrderCreatedBy", fields: [createdById], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  deletedBy User?                @relation("OrderDeletedBy", fields: [deletedById], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  updatedBy User?                @relation("OrderUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  user      User                 @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  items     ProductSKUSnapshot[]
+  products  Product[]            @relation("OrderToProduct")
+  reviews   Review[]
+
+  @@index([deletedAt])
+  @@index([status, deletedAt])
+  @@index([addressId])
+  @@index([voucherId])
+  @@index([userId, deletedAt])
+  @@index([userId, createdAt])
+  @@index([paymentId])
+}
+
+model Websocket {
+  id        String   @id
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id        Int           @id @default(autoincrement())
+  orders    Order[]
+  status    PaymentStatus
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Review {
+  id        Int    @id @default(autoincrement())
+  content   String
+  rating    Int // 1-5 stars
+  productId Int
+  userId    Int
+  orderId   Int
+
+  // Enhanced Review Fields
+  isVerifiedPurchase Boolean   @default(false) // Đã mua hàng xác thực
+  sellerResponse     String? // Phản hồi của seller
+  sellerResponseAt   DateTime? // Thời gian seller phản hồi
+  sellerId           Int? // ID của seller phản hồi
+  helpfulCount       Int       @default(0) // Số lượt "hữu ích"
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  updateCount Int      @default(0)
+
+  // Relations
+  order   Order         @relation(fields: [orderId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  product Product       @relation(fields: [productId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user    User          @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  medias  ReviewMedia[]
+
+  @@unique([orderId, productId])
+  @@index([userId])
+  @@index([productId])
+  @@index([isVerifiedPurchase])
+  @@index([sellerId])
+  @@index([productId, createdAt])
+  @@index([rating])
+}
+
+model ReviewMedia {
+  id       Int       @id @default(autoincrement())
+  url      String    @db.VarChar(1000)
+  type     MediaType
+  reviewId Int
+  review   Review    @relation(fields: [reviewId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  createdAt DateTime @default(now())
+}
+
+model PaymentTransaction {
+  id                 Int      @id @default(autoincrement())
+  gateway            String   @db.VarChar(100)
+  transactionDate    DateTime @default(now())
+  accountNumber      String?  @db.VarChar(100)
+  subAccount         String?  @db.VarChar(250)
+  amountIn           Int      @default(0)
+  amountOut          Int      @default(0)
+  accumulated        Int      @default(0)
+  code               String?  @db.VarChar(250)
+  transactionContent String?
+  referenceNumber    String?  @db.VarChar(255)
+  body               String?
+  createdAt          DateTime @default(now())
+}
+
+model Message {
+  id         Int       @id @default(autoincrement())
+  fromUserId Int
+  toUserId   Int
+  content    String
+  readAt     DateTime?
+  createdAt  DateTime  @default(now())
+  fromUser   User      @relation("FromUser", fields: [fromUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  toUser     User      @relation("ToUser", fields: [toUserId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+// ===== ADDRESS MANAGEMENT MODELS =====
+
+model Address {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  name         String   @db.VarChar(500) // Tên người nhận
+  phone        String   @db.VarChar(50) // Số điện thoại
+  provinceId   String   @db.VarChar(50) // Mã tỉnh/thành
+  provinceName String   @db.VarChar(500) // Tên tỉnh/thành
+  districtId   String   @db.VarChar(50) // Mã quận/huyện
+  districtName String   @db.VarChar(500) // Tên quận/huyện
+  wardId       String   @db.VarChar(50) // Mã phường/xã
+  wardName     String   @db.VarChar(500) // Tên phường/xã
+  detail       String   @db.VarChar(500) // Số nhà, đường
+  fullAddress  String   @db.VarChar(1000) // Địa chỉ đầy đủ
+  isDefault    Boolean  @default(false) // Địa chỉ mặc định
+  isActive     Boolean  @default(true) // Địa chỉ có hoạt động không
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  user   User    @relation("UserAddresses", fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  orders Order[] @relation("OrderAddress")
+
+  @@index([userId])
+  @@index([isDefault, isActive])
+}
+
+// ===== VOUCHER & PROMOTION MODELS =====
+
+model Voucher {
+  id                 Int         @id @default(autoincrement())
+  code               String      @unique @db.VarChar(50) // Mã voucher
+  name               String      @db.VarChar(500) // Tên voucher
+  description        String? // Mô tả voucher
+  type               VoucherType // Loại voucher
+  value              Float // Giá trị giảm (% hoặc số tiền)
+  minOrderValue      Float? // Giá trị đơn hàng tối thiểu
+  maxDiscount        Float? // Số tiền giảm tối đa
+  usageLimit         Int? // Số lượt sử dụng tối đa
+  usedCount          Int         @default(0) // Đã sử dụng bao nhiều lần
+  userUsageLimit     Int?        @default(1) // Giới hạn sử dụng per user
+  startDate          DateTime // Ngày bắt đầu
+  endDate            DateTime // Ngày kết thúc
+  isActive           Boolean     @default(true)
+  sellerId           Int? // Voucher của shop (null = platform voucher)
+  applicableProducts Int[] // Danh sách product IDs áp dụng (empty = all)
+  excludedProducts   Int[] // Danh sách product IDs loại trừ
+
+  // Audit fields
+  createdById Int?
+  updatedById Int?
+  deletedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedById Int?
+
+  // Relations
+  seller       User?         @relation("VoucherSeller", fields: [sellerId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  createdBy    User?         @relation("VoucherCreatedBy", fields: [createdById], references: [id], onUpdate: NoAction)
+  updatedBy    User?         @relation("VoucherUpdatedBy", fields: [updatedById], references: [id], onUpdate: NoAction)
+  deletedBy    User?         @relation("VoucherDeletedBy", fields: [deletedById], references: [id], onUpdate: NoAction)
+  userVouchers UserVoucher[] @relation("VoucherUserVouchers")
+  orders       Order[]       @relation("OrderVoucher")
+
+  @@index([code])
+  @@index([type])
+  @@index([isActive, startDate, endDate])
+  @@index([sellerId])
+  @@index([deletedAt])
+}
+
+model UserVoucher {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  voucherId Int
+  usedCount Int       @default(0) // Số lần user đã sử dụng voucher này
+  usedAt    DateTime? // Lần cuối sử dụng
+  savedAt   DateTime  @default(now()) // Thời gian lưu voucher
+
+  // Relations
+  user    User    @relation("UserVouchers", fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  voucher Voucher @relation("VoucherUserVouchers", fields: [voucherId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([userId, voucherId])
+  @@index([userId])
+  @@index([voucherId])
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum VoucherType {
+  PERCENTAGE // Giảm theo phần trăm
+  FIXED_AMOUNT // Giảm số tiền cố định
+  FREE_SHIPPING // Miễn phí vận chuyển
+  BUY_X_GET_Y // Mua X tặng Y
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PENDING_PICKUP
+  PENDING_DELIVERY
+  DELIVERED
+  RETURNED
+  CANCELLED
+}
+
+enum VerificationCodeType {
+  REGISTER
+  FORGOT_PASSWORD
+  LOGIN
+  DISABLE_2FA
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  BLOCKED
+}
+
+enum HTTPMethod {
+  GET
+  POST
+  PUT
+  DELETE
+  PATCH
+  OPTIONS
+  HEAD
+}
+
+// ===== CHAT SYSTEM MODELS - HỆ THỐNG CHAT REAL-TIME =====
+
+// Conversation: Quản lý cuộc trò chuyện (1-1 hoặc nhóm)
+model Conversation {
+  id            String           @id @default(cuid())
+  type          ConversationType @default(DIRECT) // DIRECT or GROUP
+  name          String?          @db.VarChar(500) // Tên nhóm (null cho chat 1-1)
+  description   String? // Mô tả nhóm
+  avatar        String?          @db.VarChar(1000) // Avatar nhóm
+  ownerId       Int? // Chủ nhóm (null cho chat 1-1)
+  lastMessage   String? // Preview tin nhắn cuối
+  lastMessageAt DateTime? // Thời gian tin nhắn cuối
+  isArchived    Boolean          @default(false)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  // Relations
+  owner            User?                 @relation("ConversationOwner", fields: [ownerId], references: [id], onDelete: SetNull)
+  members          ConversationMember[]
+  messages         ConversationMessage[]
+  typingIndicators TypingIndicator[]
+
+  @@index([lastMessageAt])
+  @@index([type])
+  @@index([ownerId])
+}
+
+// Thành viên trong cuộc trò chuyện
+model ConversationMember {
+  id             String           @id @default(cuid())
+  conversationId String
+  userId         Int
+  role           ConversationRole @default(MEMBER) // ADMIN, MODERATOR, MEMBER
+  joinedAt       DateTime         @default(now())
+  lastReadAt     DateTime? // Lần cuối đọc tin nhắn
+  unreadCount    Int              @default(0)
+  isActive       Boolean          @default(true) // Còn trong conversation không
+  isMuted        Boolean          @default(false)
+  mutedUntil     DateTime?
+
+  // Relations
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user         User         @relation("ConversationMembers", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+  @@index([userId, isActive])
+  @@index([conversationId, isActive])
+}
+
+// Tin nhắn trong conversation
+model ConversationMessage {
+  id                 String      @id @default(cuid())
+  conversationId     String
+  fromUserId         Int
+  content            String? // Nội dung text (null cho attachment-only)
+  type               MessageType @default(TEXT) // TEXT, IMAGE, FILE, SYSTEM, etc.
+  replyToId          String? // Reply to message
+  isEdited           Boolean     @default(false)
+  editedAt           DateTime?
+  isDeleted          Boolean     @default(false)
+  deletedAt          DateTime?
+  deletedForEveryone Boolean     @default(false)
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  // Relations
+  conversation Conversation          @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  fromUser     User                  @relation("SentConversationMessages", fields: [fromUserId], references: [id], onDelete: Cascade)
+  replyTo      ConversationMessage?  @relation("MessageReplies", fields: [replyToId], references: [id], onDelete: SetNull)
+  replies      ConversationMessage[] @relation("MessageReplies")
+  attachments  MessageAttachment[]
+  reactions    MessageReaction[]
+  readReceipts MessageReadReceipt[]
+
+  @@index([conversationId, createdAt])
+  @@index([fromUserId])
+  @@index([replyToId])
+  @@index([type])
+}
+
+// File đính kèm tin nhắn
+model MessageAttachment {
+  id        String         @id @default(cuid())
+  messageId String
+  type      AttachmentType // IMAGE, VIDEO, AUDIO, DOCUMENT
+  fileName  String         @db.VarChar(500)
+  fileUrl   String         @db.VarChar(1000)
+  fileSize  Int? // Kích thước file (bytes)
+  mimeType  String?        @db.VarChar(100)
+  thumbnail String?        @db.VarChar(1000) // Thumbnail cho image/video
+  width     Int? // Chiều rộng (cho image/video)
+  height    Int? // Chiều cao (cho image/video)
+  duration  Int? // Thời lượng (cho audio/video) - seconds
+  createdAt DateTime       @default(now())
+
+  // Relations
+  message ConversationMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@index([messageId])
+  @@index([type])
+}
+
+// Emoji reactions cho tin nhắn
+model MessageReaction {
+  id        String   @id @default(cuid())
+  messageId String
+  userId    Int
+  emoji     String   @db.VarChar(10) // 👍, ❤️, 😂, etc.
+  createdAt DateTime @default(now())
+
+  // Relations
+  message ConversationMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user    User                @relation("MessageReactions", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId, emoji])
+  @@index([messageId])
+  @@index([userId])
+}
+
+// Tracking ai đã đọc tin nhắn nào
+model MessageReadReceipt {
+  id        String   @id @default(cuid())
+  messageId String
+  userId    Int
+  readAt    DateTime @default(now())
+
+  // Relations
+  message ConversationMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user    User                @relation("MessageReadReceipts", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId])
+  @@index([messageId])
+  @@index([userId])
+  @@index([readAt])
+}
+
+// Theo dõi ai đang gõ trong conversation nào
+model TypingIndicator {
+  id             String   @id @default(cuid())
+  conversationId String
+  userId         Int
+  startedAt      DateTime @default(now())
+  expiresAt      DateTime // Tự động hết hạn sau 10 giây
+
+  // Relations
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user         User         @relation("TypingIndicators", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+  @@index([expiresAt])
+  @@index([conversationId])
+}
+
+// ===== CHAT SYSTEM ENUMS =====
+
+enum ConversationType {
+  DIRECT // Chat 1-1
+  GROUP // Chat nhóm
+}
+
+enum ConversationRole {
+  ADMIN // Quản trị viên nhóm
+  MODERATOR // Điều hành viên
+  MEMBER // Thành viên thường
+}
+
+enum MessageType {
+  TEXT // Tin nhắn text
+  IMAGE // Hình ảnh
+  VIDEO // Video
+  AUDIO // Audio/Voice message
+  FILE // File tài liệu
+  STICKER // Sticker/Emoji lớn
+  SYSTEM // Tin nhắn hệ thống (X joined group, etc.)
+  LOCATION // Chia sẻ vị trí
+  CONTACT // Chia sẻ liên hệ
+}
+
+enum AttachmentType {
+  IMAGE // Hình ảnh (.jpg, .png, .gif, etc.)
+  VIDEO // Video (.mp4, .mov, etc.)
+  AUDIO // Audio (.mp3, .wav, etc.)
+  DOCUMENT // Tài liệu (.pdf, .doc, .xlsx, etc.)
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+}
+
+// ===== AI ASSISTANT SYSTEM MODELS =====
+
+// AI Conversation: Cuộc trò chuyện với AI Assistant riêng biệt
+model AIConversation {
+  id         String   @id @default(cuid())
+  userId     Int // User sở hữu conversation
+  title      String?  @db.VarChar(500) // Tiêu đề conversation (auto-generated)
+  context    Json? // Context data cho AI (products viewed, orders, preferences)
+  isActive   Boolean  @default(true)
+  isArchived Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  user     User        @relation("UserAIConversations", fields: [userId], references: [id], onDelete: Cascade)
+  messages AIMessage[] @relation("AIConversationMessages")
+
+  @@index([userId, isActive])
+  @@index([createdAt])
+}
+
+// AI Messages: Tin nhắn trong AI conversation
+model AIMessage {
+  id             String        @id @default(cuid())
+  conversationId String
+  role           AIMessageRole // USER hoặc ASSISTANT
+  content        String // Nội dung tin nhắn
+  tokenCount     Int? // Số tokens consumed (for tracking costs)
+  responseTime   Int? // Response time in milliseconds
+  model          String?       @db.VarChar(100) // AI model used (claude-3-haiku, etc.)
+  error          String? // Error message nếu có lỗi
+  contextUsed    Json? // Context data được sử dụng cho response này
+  createdAt      DateTime      @default(now())
+
+  // Relations
+  conversation AIConversation @relation("AIConversationMessages", fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId, createdAt])
+  @@index([role])
+}
+
+// AI Knowledge Base: Lưu trữ kiến thức cho AI
+model AIKnowledge {
+  id          String          @id @default(cuid())
+  type        AIKnowledgeType // PRODUCT, FAQ, POLICY, etc.
+  title       String          @db.VarChar(500)
+  content     String // Nội dung kiến thức
+  keywords    String[] // Keywords để search
+  isActive    Boolean         @default(true)
+  priority    Int             @default(0) // Priority for retrieval
+  productId   Int? // Link đến product nếu có
+  categoryId  Int? // Link đến category nếu có
+  createdById Int?
+  updatedById Int?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  // Relations
+  product   Product?  @relation("AIKnowledgeProduct", fields: [productId], references: [id], onDelete: SetNull)
+  category  Category? @relation("AIKnowledgeCategory", fields: [categoryId], references: [id], onDelete: SetNull)
+  createdBy User?     @relation("AIKnowledgeCreatedBy", fields: [createdById], references: [id], onDelete: SetNull)
+  updatedBy User?     @relation("AIKnowledgeUpdatedBy", fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@index([type, isActive])
+  @@index([keywords])
+  @@index([productId])
+  @@index([categoryId])
+}
+
+// ===== AI ASSISTANT ENUMS =====
+
+enum AIMessageRole {
+  USER // Tin nhắn từ user
+  ASSISTANT // Tin nhắn từ AI
+  SYSTEM // Tin nhắn hệ thống (context, errors)
+}
+
+enum AIKnowledgeType {
+  PRODUCT // Thông tin sản phẩm
+  FAQ // Câu hỏi thường gặp
+  POLICY // Chính sách (đổi trả, vận chuyển)
+  GUIDE // Hướng dẫn sử dụng
+  PROMOTION // Khuyến mãi
+  CATEGORY // Thông tin danh mục
+}
+
+// ============================================
+// WISHLIST FEATURE MODELS
+// ============================================
+
+// Bảng WishlistItem - Lưu sản phẩm yêu thích của user
+model WishlistItem {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  productId Int
+  skuId     Int? // Optional: user có thể thích variant cụ thể
+  note      String? @db.VarChar(500) // Ghi chú cá nhân (vd: "Mua cho sinh nhật mẹ")
+  priority  Int     @default(0) // 0=normal, 1=high, 2=urgent
+
+  // Tracking
+  addedAt   DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Notification preferences
+  notifyOnPriceDrops  Boolean @default(true)
+  notifyOnBackInStock Boolean @default(true)
+  notifyOnPromotion   Boolean @default(true)
+
+  // Relations
+  user                    User                     @relation("UserWishlist", fields: [userId], references: [id], onDelete: Cascade)
+  product                 Product                  @relation("ProductWishlist", fields: [productId], references: [id], onDelete: Cascade)
+  sku                     SKU?                     @relation("SKUWishlist", fields: [skuId], references: [id], onDelete: SetNull)
+  priceAlerts             WishlistPriceAlert[]
+  wishlistCollectionItems WishlistCollectionItem[]
+
+  @@unique([userId, productId, skuId])
+  @@index([userId, addedAt])
+  @@index([productId])
+  @@index([userId, priority])
+}
+
+// Bảng WishlistCollection - Tổ chức wishlist thành collections
+model WishlistCollection {
+  id          Int     @id @default(autoincrement())
+  userId      Int
+  name        String  @db.VarChar(200) // "Quà sinh nhật", "Đồ điện tử muốn mua"
+  description String? @db.VarChar(1000)
+  isPublic    Boolean @default(false) // Cho phép share
+  shareCode   String? @unique @db.VarChar(50) // Code để share
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user  User                     @relation("UserWishlistCollections", fields: [userId], references: [id], onDelete: Cascade)
+  items WishlistCollectionItem[]
+
+  @@index([userId])
+  @@index([shareCode])
+}
+
+// Bảng trung gian: WishlistItem thuộc Collection nào
+model WishlistCollectionItem {
+  id             Int      @id @default(autoincrement())
+  collectionId   Int
+  wishlistItemId Int
+  addedAt        DateTime @default(now())
+
+  collection   WishlistCollection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  wishlistItem WishlistItem       @relation(fields: [wishlistItemId], references: [id], onDelete: Cascade)
+
+  @@unique([collectionId, wishlistItemId])
+  @@index([collectionId])
+  @@index([wishlistItemId])
+}
+
+// Bảng theo dõi price history để gửi alerts
+model WishlistPriceAlert {
+  id             Int       @id @default(autoincrement())
+  wishlistItemId Int       @unique // Make unique for upsert
+  originalPrice  Float // Giá khi add vào wishlist
+  targetPrice    Float? // Giá mong muốn (user set)
+  currentPrice   Float // Giá hiện tại
+  lastCheckedAt  DateTime  @default(now())
+  alertSentAt    DateTime?
+
+  wishlistItem WishlistItem @relation(fields: [wishlistItemId], references: [id], onDelete: Cascade)
+
+  @@index([lastCheckedAt])
+}

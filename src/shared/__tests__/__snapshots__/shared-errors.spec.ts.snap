@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shared Error Snapshots InvalidPasswordException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.InvalidPassword",
+      "path": "password",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Shared Error Snapshots NotFoundRecordException response should match snapshot 1`] = `
+{
+  "error": "Not Found",
+  "message": "Error.NotFound",
+  "statusCode": 404,
+}
+`;

@@ -1,0 +1,509 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Business Error Snapshots Address Errors ADDRESS_ACCESS_DENIED should match snapshot 1`] = `
+{
+  "errorCode": "ADDRESS_ACCESS_DENIED",
+  "message": "Bạn không có quyền truy cập địa chỉ này",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots Address Errors ADDRESS_NOT_FOUND should match snapshot 1`] = `
+{
+  "errorCode": "ADDRESS_NOT_FOUND",
+  "message": "Địa chỉ không tồn tại",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Address Errors CANNOT_DELETE_DEFAULT_ADDRESS should match snapshot 1`] = `
+{
+  "errorCode": "CANNOT_DELETE_DEFAULT_ADDRESS",
+  "message": "Không thể xóa địa chỉ mặc định. Vui lòng đặt địa chỉ khác làm mặc định trước",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Address Errors CANNOT_SET_INACTIVE_AS_DEFAULT should match snapshot 1`] = `
+{
+  "errorCode": "CANNOT_SET_INACTIVE_AS_DEFAULT",
+  "message": "Không thể đặt địa chỉ không hoạt động làm mặc định",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Address Errors DISTRICT_WARD_MISMATCH should match snapshot 1`] = `
+{
+  "errorCode": "DISTRICT_WARD_MISMATCH",
+  "message": "Phường/xã không thuộc quận/huyện đã chọn",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Address Errors INVALID_ADDRESS_DATA should match snapshot 1`] = `
+{
+  "errorCode": "INVALID_ADDRESS_DATA",
+  "message": "Dữ liệu địa chỉ không hợp lệ",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Address Errors MAX_ADDRESSES_EXCEEDED should match snapshot 1`] = `
+{
+  "errorCode": "MAX_ADDRESSES_EXCEEDED",
+  "message": "Bạn đã đạt giới hạn tối đa số lượng địa chỉ (10 địa chỉ)",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Address Errors PROVINCE_DISTRICT_MISMATCH should match snapshot 1`] = `
+{
+  "errorCode": "PROVINCE_DISTRICT_MISMATCH",
+  "message": "Quận/huyện không thuộc tỉnh/thành đã chọn",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Cart Errors CartNotFoundCartItemException 1`] = `
+{
+  "error": "Not Found",
+  "message": "Error.CartItem.NotFound",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Cart Errors CartOutOfStockSKUException 1`] = `
+{
+  "error": "Bad Request",
+  "message": "Error.SKU.OutOfStock",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Cart Errors CartProductNotFoundException 1`] = `
+{
+  "error": "Not Found",
+  "message": "Error.Product.NotFound",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Cart Errors InvalidQuantityException 1`] = `
+{
+  "error": "Bad Request",
+  "message": "Error.CartItem.InvalidQuantity",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Cart Errors NotFoundSKUException 1`] = `
+{
+  "error": "Not Found",
+  "message": "Error.SKU.NotFound",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Language Errors LanguageAlreadyExistsException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.LanguageAlreadyExists",
+      "path": "id",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots Order Errors CannotCancelOrderException 1`] = `
+{
+  "error": "Bad Request",
+  "message": "Error.CannotCancelOrder",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Order Errors NotFoundCartItemException 1`] = `
+{
+  "error": "Not Found",
+  "message": "Error.NotFoundCartItem",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Order Errors OrderNotFoundException 1`] = `
+{
+  "error": "Not Found",
+  "message": "Error.OrderNotFound",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Order Errors OutOfStockSKUException 1`] = `
+{
+  "error": "Bad Request",
+  "message": "Error.OutOfStockSKU",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Order Errors SKUNotBelongToShopException 1`] = `
+{
+  "error": "Bad Request",
+  "message": "Error.SKUNotBelongToShop",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Permission Errors PermissionAlreadyExistsException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.PermissionAlreadyExists",
+      "path": "path",
+    },
+    {
+      "message": "Error.PermissionAlreadyExists",
+      "path": "method",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots Role Errors ProhibitedActionOnBaseRoleException 1`] = `
+{
+  "error": "Forbidden",
+  "message": "Error.ProhibitedActionOnBaseRole",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots Role Errors RoleAlreadyExistsException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.RoleAlreadyExists",
+      "path": "name",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots Translation Errors BrandTranslationAlreadyExistsException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.BrandTranslationAlreadyExists",
+      "path": "languageId",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots Translation Errors CategoryTranslationAlreadyExistsException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.CategoryTranslationAlreadyExists",
+      "path": "languageId",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots Translation Errors ProductTranslationAlreadyExistsException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.ProductTranslationAlreadyExists",
+      "path": "productId",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots User Errors CannotDeleteAdminUserException 1`] = `
+{
+  "error": "Forbidden",
+  "message": "Error.CannotDeleteAdminUser",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots User Errors CannotSetAdminRoleToUserException 1`] = `
+{
+  "error": "Forbidden",
+  "message": "Error.CannotSetAdminRoleToUser",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots User Errors CannotUpdateAdminUserException 1`] = `
+{
+  "error": "Forbidden",
+  "message": "Error.CannotUpdateAdminUser",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots User Errors CannotUpdateOrDeleteYourselfException 1`] = `
+{
+  "error": "Forbidden",
+  "message": "Error.CannotUpdateOrDeleteYourself",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots User Errors RoleNotFoundException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.RoleNotFound",
+      "path": "roleId",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots User Errors UserAlreadyExistsException 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.UserAlreadyExists",
+      "path": "email",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors CANNOT_DELETE_USED_VOUCHER should match snapshot 1`] = `
+{
+  "errorCode": "CANNOT_DELETE_USED_VOUCHER",
+  "message": "Không thể xóa voucher đã được sử dụng",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors CANNOT_EDIT_USED_VOUCHER should match snapshot 1`] = `
+{
+  "errorCode": "CANNOT_EDIT_USED_VOUCHER",
+  "message": "Không thể chỉnh sửa voucher đã được sử dụng",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors INVALID_PERCENTAGE_VALUE should match snapshot 1`] = `
+{
+  "errorCode": "INVALID_PERCENTAGE_VALUE",
+  "message": "Giá trị giảm giá theo % phải từ 1-100",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors INVALID_USAGE_LIMIT should match snapshot 1`] = `
+{
+  "errorCode": "INVALID_USAGE_LIMIT",
+  "message": "Giới hạn sử dụng không hợp lệ",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors INVALID_VOUCHER_DATES should match snapshot 1`] = `
+{
+  "errorCode": "INVALID_VOUCHER_DATES",
+  "message": "Ngày bắt đầu phải trước ngày kết thúc",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors INVALID_VOUCHER_TYPE should match snapshot 1`] = `
+{
+  "errorCode": "INVALID_VOUCHER_TYPE",
+  "message": "Loại voucher không hợp lệ",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors INVALID_VOUCHER_VALUE should match snapshot 1`] = `
+{
+  "errorCode": "INVALID_VOUCHER_VALUE",
+  "message": "Giá trị voucher không hợp lệ",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors ORDER_VALUE_TOO_LOW should match snapshot 1`] = `
+{
+  "errorCode": "ORDER_VALUE_TOO_LOW",
+  "message": "Giá trị đơn hàng chưa đủ điều kiện sử dụng voucher",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors PRODUCTS_EXCLUDED should match snapshot 1`] = `
+{
+  "errorCode": "PRODUCTS_EXCLUDED",
+  "message": "Đơn hàng chứa sản phẩm không được áp dụng voucher",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors PRODUCTS_NOT_APPLICABLE should match snapshot 1`] = `
+{
+  "errorCode": "PRODUCTS_NOT_APPLICABLE",
+  "message": "Sản phẩm trong đơn hàng không áp dụng được voucher này",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors SELLER_CANNOT_USE_PLATFORM_VOUCHER should match snapshot 1`] = `
+{
+  "errorCode": "SELLER_CANNOT_USE_PLATFORM_VOUCHER",
+  "message": "Seller không thể sử dụng voucher hệ thống",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors USER_VOUCHER_LIMIT_EXCEEDED should match snapshot 1`] = `
+{
+  "errorCode": "USER_VOUCHER_LIMIT_EXCEEDED",
+  "message": "Bạn đã sử dụng hết lượt voucher này",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_ACCESS_DENIED should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_ACCESS_DENIED",
+  "message": "Bạn không có quyền truy cập voucher này",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_ALREADY_COLLECTED should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_ALREADY_COLLECTED",
+  "message": "Bạn đã lưu voucher này rồi",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_CODE_EXISTS should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_CODE_EXISTS",
+  "message": "Mã voucher đã tồn tại",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_CODE_NOT_FOUND should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_CODE_NOT_FOUND",
+  "message": "Mã voucher không tồn tại",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_EXPIRED should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_EXPIRED",
+  "message": "Voucher đã hết hạn",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_INACTIVE should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_INACTIVE",
+  "message": "Voucher đã bị vô hiệu hóa",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_NOT_COLLECTED should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_NOT_COLLECTED",
+  "message": "Bạn chưa lưu voucher này",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_NOT_FOUND should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_NOT_FOUND",
+  "message": "Voucher không tồn tại",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_NOT_STARTED should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_NOT_STARTED",
+  "message": "Voucher chưa có hiệu lực",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Voucher Errors VOUCHER_USAGE_LIMIT_EXCEEDED should match snapshot 1`] = `
+{
+  "errorCode": "VOUCHER_USAGE_LIMIT_EXCEEDED",
+  "message": "Voucher đã hết lượt sử dụng",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Wishlist Errors NoSKUSelectedException 1`] = `
+{
+  "error": "NO_SKU_SELECTED",
+  "message": "Cannot add to cart: No SKU selected for this product",
+  "statusCode": 400,
+}
+`;
+
+exports[`Business Error Snapshots Wishlist Errors UnauthorizedWishlistAccessException 1`] = `
+{
+  "error": "UNAUTHORIZED_WISHLIST_ACCESS",
+  "message": "You do not have permission to access this wishlist item",
+  "statusCode": 403,
+}
+`;
+
+exports[`Business Error Snapshots Wishlist Errors WishlistCollectionNotFoundException 1`] = `
+{
+  "error": "WISHLIST_COLLECTION_NOT_FOUND",
+  "message": "Wishlist collection not found",
+  "statusCode": 404,
+}
+`;
+
+exports[`Business Error Snapshots Wishlist Errors WishlistItemAlreadyExistsException 1`] = `
+{
+  "error": "WISHLIST_ITEM_ALREADY_EXISTS",
+  "message": "Product already in wishlist",
+  "statusCode": 409,
+}
+`;
+
+exports[`Business Error Snapshots Wishlist Errors WishlistItemNotFoundException 1`] = `
+{
+  "error": "WISHLIST_ITEM_NOT_FOUND",
+  "message": "Wishlist item not found",
+  "statusCode": 404,
+}
+`;

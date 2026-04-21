@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentController Response Structure Snapshots should match webhook DTO input structure 1`] = `
+{
+  "accountNumber": "1234567890",
+  "accumulated": 10000000,
+  "code": "PAY100",
+  "content": "Thanh toan don hang PAY100",
+  "description": "Chuyen khoan thanh toan don hang",
+  "gateway": "VCB",
+  "id": 123456,
+  "referenceCode": "REF123456",
+  "subAccount": null,
+  "transactionDate": "2024-01-15T10:30:00.000Z",
+  "transferAmount": 500000,
+  "transferType": "in",
+}
+`;
+
+exports[`PaymentController Response Structure Snapshots should match webhook receiver success response structure 1`] = `
+{
+  "message": "Payment received successfully",
+}
+`;

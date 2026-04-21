@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth DTO Validation Snapshots LoginBodySchema should produce validation error when both totpCode and code provided 1`] = `
+[
+  {
+    "code": "custom",
+    "message": "Bạn phải cung cấp mã xác thực 2FA hoặc mã OTP. Không được cung cấp cả 2",
+    "path": [
+      "totpCode",
+    ],
+  },
+  {
+    "code": "custom",
+    "message": "Bạn phải cung cấp mã xác thực 2FA hoặc mã OTP. Không được cung cấp cả 2",
+    "path": [
+      "code",
+    ],
+  },
+]
+`;
+
+exports[`Auth DTO Validation Snapshots LoginBodySchema should produce validation errors for empty object 1`] = `
+[
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "email",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "password",
+    ],
+  },
+]
+`;
+
+exports[`Auth DTO Validation Snapshots RegisterBodySchema should produce validation error for mismatched passwords 1`] = `
+[
+  {
+    "code": "custom",
+    "message": "Password and confirm password must match.",
+    "path": [
+      "confirmPassword",
+    ],
+  },
+]
+`;
+
+exports[`Auth DTO Validation Snapshots RegisterBodySchema should produce validation errors for empty object 1`] = `
+[
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "email",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "password",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "name",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "phoneNumber",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "confirmPassword",
+    ],
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "code",
+    ],
+  },
+]
+`;
+
+exports[`Auth DTO Validation Snapshots RegisterBodySchema should produce validation errors for invalid email and short password 1`] = `
+[
+  {
+    "code": "invalid_format",
+    "format": "email",
+    "message": "Invalid email address",
+    "origin": "string",
+    "path": [
+      "email",
+    ],
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+  },
+  {
+    "code": "too_small",
+    "inclusive": true,
+    "message": "Too small: expected string to have >=6 characters",
+    "minimum": 6,
+    "origin": "string",
+    "path": [
+      "password",
+    ],
+  },
+  {
+    "code": "too_small",
+    "inclusive": true,
+    "message": "Too small: expected string to have >=1 characters",
+    "minimum": 1,
+    "origin": "string",
+    "path": [
+      "name",
+    ],
+  },
+  {
+    "code": "too_small",
+    "inclusive": true,
+    "message": "Too small: expected string to have >=9 characters",
+    "minimum": 9,
+    "origin": "string",
+    "path": [
+      "phoneNumber",
+    ],
+  },
+  {
+    "code": "too_small",
+    "inclusive": true,
+    "message": "Too small: expected string to have >=6 characters",
+    "minimum": 6,
+    "origin": "string",
+    "path": [
+      "confirmPassword",
+    ],
+  },
+  {
+    "code": "too_small",
+    "exact": true,
+    "inclusive": true,
+    "message": "Too small: expected string to have >=6 characters",
+    "minimum": 6,
+    "origin": "string",
+    "path": [
+      "code",
+    ],
+  },
+  {
+    "code": "custom",
+    "message": "Password and confirm password must match.",
+    "path": [
+      "confirmPassword",
+    ],
+  },
+]
+`;
+
+exports[`Auth DTO Validation Snapshots SendOTPBodySchema should produce validation error for invalid email 1`] = `
+[
+  {
+    "code": "invalid_format",
+    "format": "email",
+    "message": "Invalid email address",
+    "origin": "string",
+    "path": [
+      "email",
+    ],
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+  },
+]
+`;
+
+exports[`Auth DTO Validation Snapshots SendOTPBodySchema should produce validation error for invalid type 1`] = `
+[
+  {
+    "code": "invalid_value",
+    "message": "Invalid option: expected one of "REGISTER"|"FORGOT_PASSWORD"|"LOGIN"|"DISABLE_2FA"",
+    "path": [
+      "type",
+    ],
+    "values": [
+      "REGISTER",
+      "FORGOT_PASSWORD",
+      "LOGIN",
+      "DISABLE_2FA",
+    ],
+  },
+]
+`;
+
+exports[`Auth DTO Validation Snapshots SendOTPBodySchema should produce validation errors for empty object 1`] = `
+[
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "message": "Invalid input: expected string, received undefined",
+    "path": [
+      "email",
+    ],
+  },
+  {
+    "code": "invalid_value",
+    "message": "Invalid option: expected one of "REGISTER"|"FORGOT_PASSWORD"|"LOGIN"|"DISABLE_2FA"",
+    "path": [
+      "type",
+    ],
+    "values": [
+      "REGISTER",
+      "FORGOT_PASSWORD",
+      "LOGIN",
+      "DISABLE_2FA",
+    ],
+  },
+]
+`;

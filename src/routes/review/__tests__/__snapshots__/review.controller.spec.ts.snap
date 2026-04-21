@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewController Response Structure Snapshots should match review create response structure 1`] = `
+{
+  "content": "This is a great product!",
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "id": 1,
+  "medias": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "id": 1,
+      "reviewId": 1,
+      "type": "IMAGE",
+      "url": "https://example.com/image1.jpg",
+    },
+  ],
+  "orderId": 1,
+  "productId": 1,
+  "rating": 5,
+  "updateCount": 0,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "user": {
+    "avatar": "https://example.com/avatar.jpg",
+    "id": 1,
+    "name": "Test User",
+  },
+  "userId": 1,
+}
+`;
+
+exports[`ReviewController Response Structure Snapshots should match review list response structure 1`] = `
+{
+  "data": [
+    {
+      "content": "This is a great product!",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "id": 1,
+      "medias": [
+        {
+          "createdAt": "2024-01-01T00:00:00.000Z",
+          "id": 1,
+          "reviewId": 1,
+          "type": "IMAGE",
+          "url": "https://example.com/image1.jpg",
+        },
+      ],
+      "orderId": 1,
+      "productId": 1,
+      "rating": 5,
+      "updateCount": 0,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "user": {
+        "avatar": "https://example.com/avatar.jpg",
+        "id": 1,
+        "name": "Test User",
+      },
+      "userId": 1,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 1,
+  "totalPages": 1,
+}
+`;

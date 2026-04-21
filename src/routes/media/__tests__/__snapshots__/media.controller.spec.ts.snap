@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaController Response Structure Snapshots should match presigned URL response structure 1`] = `
+{
+  "presignedUrl": "https://s3.amazonaws.com/bucket/images/test.jpg?X-Amz-Signature=abc123",
+  "url": "https://s3.amazonaws.com/bucket/images/test.jpg",
+}
+`;
+
+exports[`MediaController Response Structure Snapshots should match upload file response structure 1`] = `
+{
+  "data": [
+    {
+      "url": "https://s3.amazonaws.com/bucket/images/test-123.jpg",
+    },
+  ],
+}
+`;

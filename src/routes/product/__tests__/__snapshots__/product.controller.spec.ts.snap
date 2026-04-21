@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductController Response Structure Snapshots should match product detail response structure 1`] = `
+{
+  "basePrice": 100000,
+  "brand": {
+    "brandTranslations": [
+      {
+        "brandId": 1,
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "createdById": null,
+        "deletedAt": null,
+        "deletedById": null,
+        "description": "Apple brand",
+        "id": 1,
+        "languageId": "vi",
+        "name": "Apple",
+        "updatedAt": "2024-01-01T00:00:00.000Z",
+        "updatedById": null,
+      },
+    ],
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "createdById": null,
+    "deletedAt": null,
+    "deletedById": null,
+    "id": 1,
+    "logo": "apple-logo.jpg",
+    "name": "Apple",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "updatedById": null,
+  },
+  "brandId": 1,
+  "categories": [
+    {
+      "categoryTranslations": [
+        {
+          "categoryId": 1,
+          "createdAt": "2024-01-01T00:00:00.000Z",
+          "createdById": null,
+          "deletedAt": null,
+          "deletedById": null,
+          "description": "Sản phẩm điện tử",
+          "id": 1,
+          "languageId": "vi",
+          "name": "Điện tử",
+          "updatedAt": "2024-01-01T00:00:00.000Z",
+          "updatedById": null,
+        },
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": null,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "logo": "electronics-logo.jpg",
+      "name": "Electronics",
+      "parentCategoryId": null,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 1,
+  "images": [
+    "test-image.jpg",
+  ],
+  "name": "Test Product",
+  "productTranslations": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": null,
+      "deletedAt": null,
+      "deletedById": null,
+      "description": "Test Description",
+      "id": 1,
+      "languageId": "vi",
+      "name": "Test Product",
+      "productId": 1,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "publishedAt": "2024-01-01T00:00:00.000Z",
+  "skus": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "image": "test-sku-image.jpg",
+      "price": 100000,
+      "productId": 1,
+      "stock": 50,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+      "value": "Size: M",
+    },
+  ],
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+  "variants": [
+    {
+      "options": [
+        "M",
+        "L",
+        "XL",
+      ],
+      "value": "Size",
+    },
+  ],
+  "virtualPrice": 120000,
+}
+`;
+
+exports[`ProductController Response Structure Snapshots should match product list response structure 1`] = `
+{
+  "data": [
+    {
+      "basePrice": 100000,
+      "brandId": 1,
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": null,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "images": [
+        "test-image.jpg",
+      ],
+      "name": "Test Product",
+      "productTranslations": [
+        {
+          "createdAt": "2024-01-01T00:00:00.000Z",
+          "createdById": null,
+          "deletedAt": null,
+          "deletedById": null,
+          "description": "Test Description",
+          "id": 1,
+          "languageId": "vi",
+          "name": "Test Product",
+          "productId": 1,
+          "updatedAt": "2024-01-01T00:00:00.000Z",
+          "updatedById": null,
+        },
+      ],
+      "publishedAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+      "variants": [
+        {
+          "options": [
+            "M",
+            "L",
+            "XL",
+          ],
+          "value": "Size",
+        },
+      ],
+      "virtualPrice": 120000,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 1,
+  "totalPages": 1,
+}
+`;

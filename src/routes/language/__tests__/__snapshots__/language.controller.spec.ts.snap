@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguageController Response Structure Snapshots should match language create response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "id": "ja",
+  "name": "Japanese",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`LanguageController Response Structure Snapshots should match language detail response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "id": "en",
+  "name": "English",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`LanguageController Response Structure Snapshots should match language list response structure 1`] = `
+{
+  "data": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "id": "en",
+      "name": "English",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "id": "vi",
+      "name": "Tiếng Việt",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "totalItems": 2,
+}
+`;

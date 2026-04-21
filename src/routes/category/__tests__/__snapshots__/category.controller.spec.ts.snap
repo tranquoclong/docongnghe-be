@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryController Response Structure Snapshots should match category create response structure 1`] = `
+{
+  "categoryTranslations": [],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 10,
+  "logo": "https://example.com/electronics-logo.png",
+  "name": "New Category",
+  "parentCategoryId": null,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`CategoryController Response Structure Snapshots should match category delete response structure 1`] = `
+{
+  "message": "Delete successfully",
+}
+`;
+
+exports[`CategoryController Response Structure Snapshots should match category detail response structure 1`] = `
+{
+  "categoryTranslations": [],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "id": 1,
+  "logo": "https://example.com/electronics-logo.png",
+  "name": "Electronics",
+  "parentCategoryId": null,
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`CategoryController Response Structure Snapshots should match category list response structure 1`] = `
+{
+  "data": [
+    {
+      "categoryTranslations": [],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 1,
+      "logo": "https://example.com/electronics-logo.png",
+      "name": "Electronics",
+      "parentCategoryId": null,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+    {
+      "categoryTranslations": [],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "id": 2,
+      "logo": "https://example.com/electronics-logo.png",
+      "name": "Clothing",
+      "parentCategoryId": null,
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "totalItems": 2,
+}
+`;

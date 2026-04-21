@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth Error Snapshots Email Errors EmailAlreadyExistsException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.EmailAlreadyExists",
+      "path": "email",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots Email Errors EmailNotFoundException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.EmailNotFound",
+      "path": "email",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots OTP Errors FailedToSendOTPException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.FailedToSendOTP",
+      "path": "code",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots OTP Errors InvalidOTPException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.InvalidOTP",
+      "path": "code",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots OTP Errors OTPExpiredException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.OTPExpired",
+      "path": "code",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots TOTP Errors InvalidTOTPAndCodeException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.InvalidTOTPAndCode",
+      "path": "totpCode",
+    },
+    {
+      "message": "Error.InvalidTOTPAndCode",
+      "path": "code",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots TOTP Errors InvalidTOTPException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.InvalidTOTP",
+      "path": "totpCode",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots TOTP Errors TOTPAlreadyEnabledException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.TOTPAlreadyEnabled",
+      "path": "totpCode",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots TOTP Errors TOTPNotEnabledException response should match snapshot 1`] = `
+{
+  "error": "Unprocessable Entity",
+  "message": [
+    {
+      "message": "Error.TOTPNotEnabled",
+      "path": "totpCode",
+    },
+    {
+      "message": "Error.TOTPNotEnabled",
+      "path": "code",
+    },
+  ],
+  "statusCode": 422,
+}
+`;
+
+exports[`Auth Error Snapshots Token Errors RefreshTokenAlreadyUsedException response should match snapshot 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Error.RefreshTokenAlreadyUsed",
+  "statusCode": 401,
+}
+`;
+
+exports[`Auth Error Snapshots Token Errors UnauthorizedAccessException response should match snapshot 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Error.UnauthorizedAccess",
+  "statusCode": 401,
+}
+`;

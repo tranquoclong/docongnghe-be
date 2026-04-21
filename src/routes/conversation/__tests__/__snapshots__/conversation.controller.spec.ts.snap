@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationController Response Structure Snapshots should match conversations list response structure 1`] = `
+{
+  "data": [
+    {
+      "avatar": null,
+      "createdAt": 2024-01-01T00:00:00.000Z,
+      "currentUserRole": "MEMBER",
+      "description": null,
+      "id": "conv-1",
+      "isArchived": false,
+      "isCurrentUserAdmin": false,
+      "lastMessage": "Xin chào",
+      "lastMessageAt": 2024-01-01T00:00:00.000Z,
+      "memberCount": 1,
+      "members": [
+        {
+          "conversationId": "conv-1",
+          "id": "member-1",
+          "isActive": true,
+          "isMuted": false,
+          "joinedAt": 2024-01-01T00:00:00.000Z,
+          "lastReadAt": 2024-01-01T00:00:00.000Z,
+          "mutedUntil": null,
+          "role": "MEMBER",
+          "unreadCount": 0,
+          "user": {
+            "avatar": "avatar.jpg",
+            "email": "test@example.com",
+            "id": 1,
+            "name": "Nguyễn Văn A",
+            "status": "ACTIVE",
+          },
+          "userId": 1,
+        },
+      ],
+      "name": null,
+      "owner": null,
+      "ownerId": null,
+      "type": "DIRECT",
+      "unreadCount": 0,
+      "updatedAt": 2024-01-01T00:00:00.000Z,
+    },
+  ],
+  "pagination": {
+    "limit": 20,
+    "page": 1,
+    "total": 1,
+    "totalPages": 1,
+  },
+  "stats": {
+    "archivedCount": 1,
+    "directCount": 3,
+    "groupCount": 2,
+    "totalUnread": 5,
+  },
+}
+`;
+
+exports[`ConversationController Response Structure Snapshots should match direct conversation response structure 1`] = `
+{
+  "avatar": null,
+  "createdAt": 2024-01-01T00:00:00.000Z,
+  "currentUserRole": "MEMBER",
+  "description": null,
+  "id": "conv-1",
+  "isArchived": false,
+  "isCurrentUserAdmin": false,
+  "lastMessage": "Xin chào",
+  "lastMessageAt": 2024-01-01T00:00:00.000Z,
+  "memberCount": 1,
+  "members": [
+    {
+      "conversationId": "conv-1",
+      "id": "member-1",
+      "isActive": true,
+      "isMuted": false,
+      "joinedAt": 2024-01-01T00:00:00.000Z,
+      "lastReadAt": 2024-01-01T00:00:00.000Z,
+      "mutedUntil": null,
+      "role": "MEMBER",
+      "unreadCount": 0,
+      "user": {
+        "avatar": "avatar.jpg",
+        "email": "test@example.com",
+        "id": 1,
+        "name": "Nguyễn Văn A",
+        "status": "ACTIVE",
+      },
+      "userId": 1,
+    },
+  ],
+  "name": null,
+  "owner": null,
+  "ownerId": null,
+  "type": "DIRECT",
+  "unreadCount": 0,
+  "updatedAt": 2024-01-01T00:00:00.000Z,
+}
+`;
+
+exports[`ConversationController Response Structure Snapshots should match group conversation response structure 1`] = `
+{
+  "avatar": "group-avatar.jpg",
+  "createdAt": 2024-01-01T00:00:00.000Z,
+  "currentUserRole": "ADMIN",
+  "description": "Nhóm thảo luận",
+  "id": "conv-2",
+  "isArchived": false,
+  "isCurrentUserAdmin": true,
+  "lastMessage": "Chào mọi người",
+  "lastMessageAt": 2024-01-01T00:00:00.000Z,
+  "memberCount": 2,
+  "members": [
+    {
+      "conversationId": "conv-1",
+      "id": "member-1",
+      "isActive": true,
+      "isMuted": false,
+      "joinedAt": 2024-01-01T00:00:00.000Z,
+      "lastReadAt": 2024-01-01T00:00:00.000Z,
+      "mutedUntil": null,
+      "role": "ADMIN",
+      "unreadCount": 0,
+      "user": {
+        "avatar": "avatar.jpg",
+        "email": "test@example.com",
+        "id": 1,
+        "name": "Nguyễn Văn A",
+        "status": "ACTIVE",
+      },
+      "userId": 1,
+    },
+    {
+      "conversationId": "conv-1",
+      "id": "member-2",
+      "isActive": true,
+      "isMuted": false,
+      "joinedAt": 2024-01-01T00:00:00.000Z,
+      "lastReadAt": 2024-01-01T00:00:00.000Z,
+      "mutedUntil": null,
+      "role": "MEMBER",
+      "unreadCount": 0,
+      "user": {
+        "avatar": "avatar.jpg",
+        "email": "test@example.com",
+        "id": 1,
+        "name": "Nguyễn Văn A",
+        "status": "ACTIVE",
+      },
+      "userId": 2,
+    },
+  ],
+  "name": "Nhóm chat",
+  "owner": {
+    "avatar": "avatar.jpg",
+    "email": "test@example.com",
+    "id": 1,
+    "name": "Nguyễn Văn A",
+    "status": "ACTIVE",
+  },
+  "ownerId": 1,
+  "type": "GROUP",
+  "unreadCount": 0,
+  "updatedAt": 2024-01-01T00:00:00.000Z,
+}
+`;

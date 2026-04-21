@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AIAssistantController Response Structure Snapshots should match SSE streaming writeHead structure 1`] = `
+{
+  "headers": {
+    "Access-Control-Allow-Headers": "Cache-Control",
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Connection": "keep-alive",
+    "Content-Type": "text/event-stream",
+  },
+  "status": 200,
+}
+`;

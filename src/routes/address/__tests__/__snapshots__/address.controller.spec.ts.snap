@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddressController Response Structure Snapshots should match address detail response structure 1`] = `
+{
+  "data": {
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "detail": "123 Lê Lợi",
+    "districtId": "001",
+    "districtName": "Quận 1",
+    "fullAddress": "123 Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+    "id": 1,
+    "isActive": true,
+    "isDefault": false,
+    "name": "Nguyễn Văn A",
+    "phone": "0987654321",
+    "provinceId": "01",
+    "provinceName": "TP. Hồ Chí Minh",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "userId": 1,
+    "wardId": "00001",
+    "wardName": "Phường Bến Nghé",
+  },
+}
+`;
+
+exports[`AddressController Response Structure Snapshots should match address list response structure 1`] = `
+{
+  "data": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "detail": "123 Lê Lợi",
+      "districtId": "001",
+      "districtName": "Quận 1",
+      "fullAddress": "123 Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+      "id": 1,
+      "isActive": true,
+      "isDefault": false,
+      "name": "Nguyễn Văn A",
+      "phone": "0987654321",
+      "provinceId": "01",
+      "provinceName": "TP. Hồ Chí Minh",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "userId": 1,
+      "wardId": "00001",
+      "wardName": "Phường Bến Nghé",
+    },
+  ],
+  "pagination": {
+    "limit": 10,
+    "page": 1,
+    "total": 1,
+    "totalPages": 1,
+  },
+}
+`;
+
+exports[`AddressController Response Structure Snapshots should match create address response structure 1`] = `
+{
+  "data": {
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "detail": "123 Lê Lợi",
+    "districtId": "001",
+    "districtName": "Quận 1",
+    "fullAddress": "123 Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+    "id": 1,
+    "isActive": true,
+    "isDefault": false,
+    "name": "Nguyễn Văn A",
+    "phone": "0987654321",
+    "provinceId": "01",
+    "provinceName": "TP. Hồ Chí Minh",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "userId": 1,
+    "wardId": "00001",
+    "wardName": "Phường Bến Nghé",
+  },
+}
+`;

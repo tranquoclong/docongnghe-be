@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VoucherController Response Structure Snapshots should match voucher application result structure 1`] = `
+{
+  "data": {
+    "canApply": true,
+    "discountAmount": 40000,
+    "reason": undefined,
+  },
+}
+`;
+
+exports[`VoucherController Response Structure Snapshots should match voucher detail response structure 1`] = `
+{
+  "data": {
+    "applicableProducts": [
+      1,
+      2,
+      3,
+    ],
+    "canApply": true,
+    "code": "SUMMER2024",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "description": "Summer sale voucher",
+    "endDate": "2024-01-01T00:00:00.000Z",
+    "excludedProducts": [
+      4,
+      5,
+    ],
+    "id": 1,
+    "isActive": true,
+    "isCollected": true,
+    "maxDiscount": 50000,
+    "minOrderValue": 100000,
+    "name": "Summer Sale",
+    "sellerId": null,
+    "startDate": "2024-01-01T00:00:00.000Z",
+    "type": "PERCENTAGE",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "usageLimit": 100,
+    "usedCount": 0,
+    "userUsageLimit": 1,
+    "userVoucher": {
+      "canUse": true,
+      "savedAt": "2024-01-01T00:00:00.000Z",
+      "usedCount": 0,
+    },
+    "value": 20,
+  },
+}
+`;
+
+exports[`VoucherController Response Structure Snapshots should match voucher list response structure 1`] = `
+{
+  "data": [
+    {
+      "applicableProducts": [
+        1,
+        2,
+        3,
+      ],
+      "code": "SUMMER2024",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "description": "Summer sale voucher",
+      "endDate": "2024-01-01T00:00:00.000Z",
+      "excludedProducts": [
+        4,
+        5,
+      ],
+      "id": 1,
+      "isActive": true,
+      "maxDiscount": 50000,
+      "minOrderValue": 100000,
+      "name": "Summer Sale",
+      "sellerId": null,
+      "startDate": "2024-01-01T00:00:00.000Z",
+      "type": "PERCENTAGE",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "usageLimit": 100,
+      "usedCount": 0,
+      "userUsageLimit": 1,
+      "value": 20,
+    },
+  ],
+  "pagination": {
+    "limit": 10,
+    "page": 1,
+    "total": 1,
+    "totalPages": 1,
+  },
+}
+`;
+
+exports[`VoucherController Response Structure Snapshots should match voucher stats response structure 1`] = `
+{
+  "data": {
+    "activeVouchers": 8,
+    "collectedVouchers": 5,
+    "totalVouchers": 10,
+    "usedVouchers": 2,
+  },
+}
+`;

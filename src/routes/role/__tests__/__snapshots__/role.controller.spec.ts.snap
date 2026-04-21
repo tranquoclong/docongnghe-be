@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoleController Response Structure Snapshots should match role create response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "description": "Test role description",
+  "id": 10,
+  "isActive": true,
+  "name": "New Role",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`RoleController Response Structure Snapshots should match role detail response structure 1`] = `
+{
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "description": "Test role description",
+  "id": 1,
+  "isActive": true,
+  "name": "Test Role",
+  "permissions": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "description": "Permission to view users",
+      "id": 1,
+      "method": "GET",
+      "module": "user",
+      "name": "View Users",
+      "path": "/users",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`RoleController Response Structure Snapshots should match role list response structure 1`] = `
+{
+  "data": [
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "description": "Test role description",
+      "id": 1,
+      "isActive": true,
+      "name": "Test Role",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+    {
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "description": "Test role description",
+      "id": 2,
+      "isActive": true,
+      "name": "Admin",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 2,
+  "totalPages": 1,
+}
+`;

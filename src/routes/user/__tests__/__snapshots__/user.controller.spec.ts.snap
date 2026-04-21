@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserController Response Structure Snapshots should match create user response structure 1`] = `
+{
+  "avatar": "https://example.com/avatar.jpg",
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "email": "test@example.com",
+  "id": 1,
+  "name": "Test User",
+  "phoneNumber": "0987654321",
+  "roleId": 2,
+  "status": "ACTIVE",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`UserController Response Structure Snapshots should match user detail with role response structure 1`] = `
+{
+  "avatar": "https://example.com/avatar.jpg",
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "createdById": 1,
+  "deletedAt": null,
+  "deletedById": null,
+  "email": "test@example.com",
+  "id": 1,
+  "name": "Test User",
+  "phoneNumber": "0987654321",
+  "role": {
+    "id": 2,
+    "name": "CLIENT",
+    "permissions": [],
+  },
+  "roleId": 2,
+  "status": "ACTIVE",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "updatedById": null,
+}
+`;
+
+exports[`UserController Response Structure Snapshots should match users list response structure 1`] = `
+{
+  "data": [
+    {
+      "avatar": null,
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "createdById": 1,
+      "deletedAt": null,
+      "deletedById": null,
+      "email": "user1@example.com",
+      "id": 1,
+      "name": "User 1",
+      "phoneNumber": "0987654321",
+      "role": {
+        "id": 2,
+        "name": "CLIENT",
+      },
+      "roleId": 2,
+      "status": "ACTIVE",
+      "updatedAt": "2024-01-01T00:00:00.000Z",
+      "updatedById": null,
+    },
+  ],
+  "limit": 10,
+  "page": 1,
+  "totalItems": 1,
+  "totalPages": 1,
+}
+`;
