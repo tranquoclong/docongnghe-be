@@ -19,7 +19,7 @@ async function bootstrap() {
 
   // Add development origins if in development mode
   if (process.env.NODE_ENV === 'development') {
-    allowedOrigins.push('http://localhost:3000', 'http://localhost:3300', 'http://localhost:4000', 'http://localhost:5173')
+    allowedOrigins.push('http://localhost:3000', 'https://docongnghe.vercel.app', 'http://localhost:4000', 'http://localhost:5173')
   }
 
   // Validate CORS in production - ALLOWED_ORIGINS must be set
@@ -31,7 +31,7 @@ async function bootstrap() {
     origin: allowedOrigins.length > 0 ? allowedOrigins : false,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept-Language', 'refresh-access-token', 'expire-access-token'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Accept-Language', 'refresh-access-token', 'expire-access-token'],
     maxAge: 86400, // 24 hours preflight cache
   })
 

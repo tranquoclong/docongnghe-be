@@ -85,6 +85,7 @@
     "nestjs-i18n": "^10.5.1",
     "nestjs-pino": "^4.4.0",
     "nestjs-zod": "^5.0.0",
+    "next": "^15.1.11",
     "otpauth": "^9.3.6",
     "pino": "^9.9.0",
     "react": "19.0.0",
