@@ -44,6 +44,8 @@ FROM base AS production
 # Install curl for healthcheck
 RUN apk add --no-cache curl
 
+RUN mkdir -p /app/upload && chown -R node:node /app
+
 # Create non-root user (standard node user)
 USER node
 
